@@ -185,6 +185,9 @@ const numberKeywords = [
  * https://json-schema.org/latest/json-schema-validation.html#rfc.section.6
  */
 function inferTypeByKeyword (schema) {
+  if (schema.$allOff !== undefined){
+    return undefined;
+  }
   // eslint-disable-next-line
   for (var keyword of objectKeywords) {
     if (keyword in schema) return 'object'
